@@ -1,0 +1,22 @@
+-------- What is react component -----------
+
+component hocce 1ta function ba class(either class based or function based)
+which produce HTML to the user(using jsx) and handles feedback from the users(using event hadlers)
+
+-------- Creating an component -------------
+
+//import the react and ReactDom libraries
+import React from "react"; //React hocce variable er name.. react dependancy theke sob kusi React var e store hocce
+import ReactDOM from "react-dom";
+
+//create a react component
+const App = () => { //function based component create korlam
+  return <div>Hello faisal</div>;
+};
+
+-------- Displaying the react component to browser -------
+
+//amar index.html file e 1ta div ace jar id root. sekhane 
+//component ta show korabo..
+
+ReactDOM.render(<App />, document.querySelector("#root"));

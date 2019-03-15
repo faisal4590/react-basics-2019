@@ -1,0 +1,5 @@
+=> 1st e node js install korbo.
+=> then create-react-app package ta globally install korbo. eta diye react app create korbo.
+    command: npm install -g create-react-app
+=> now react project install korbo
+    command: create-react-app project_name

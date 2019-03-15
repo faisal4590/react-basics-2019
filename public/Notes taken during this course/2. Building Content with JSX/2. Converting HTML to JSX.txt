@@ -1,0 +1,37 @@
+=> Suppose amar 1ta following html code ace jetake jsx code e convert korbo
+
+<div>
+      <label class="label" for="name">
+        Enter name :
+      </label>
+      <input id="name" type="text" />
+      <button style=background-color:blue; color:white;>
+        Submit
+      </button>
+</div>
+
+------ Converting the above to jsx ----------
+//create a react component
+const App = () => {
+  return (
+    <div>
+      <label className="label" for="name">
+        Enter name :
+      </label>
+      <input id="name" type="text" />
+      <button style={{ backgroundColor: "blue", color: "white" }}>
+        Submit
+      </button>
+    </div>
+  );
+};
+
+//Take the react component and show it on the screen
+
+ReactDOM.render(<App />, document.querySelector("#root"));
+
+------- Inline jsx styling -------
+ <button style={{ backgroundColor: "blue", color: "white" }}>
+      
+------- Class vs ClassName -------
+html e class="" ditam but jsx e className="" use korbo

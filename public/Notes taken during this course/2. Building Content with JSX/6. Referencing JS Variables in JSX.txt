@@ -1,0 +1,57 @@
+//1ta js er variable ke kivabe jsx e access korbo? 
+
+const App = () => {
+  let clickMeVariable = "click me";
+  return (
+    <div>
+      <label class="label" for="name">
+        Enter name :
+      </label>
+      <input id="name" type="text" />
+      <button style={{ backgroundColor: "blue", color: "white" }}>
+        {clickMeVariable}
+      </button>
+    </div>
+  );
+};
+
+//{} er moddhe access korte parbo
+
+
+--------- calling a js function inside jsx -----------
+
+function getButtonText() {
+  return "click me";
+}
+//create a react component
+const App = () => {
+  let clickMeVariable = "click me";
+  return (
+    <div>
+      <label class="label" for="name">
+        Enter name :
+      </label>
+      <input id="name" type="text" />
+      <button style={{ backgroundColor: "blue", color: "white" }}>
+        {getButtonText()}
+      </button>
+    </div>
+  );
+};
+
+-------- using js Objects in jsx ----------
+
+const App = () => {
+  let clickObj = { text: "click me" };
+  return (
+    <div>
+      <label class="label" for="name">
+        Enter name :
+      </label>
+      <input id="name" type="text" />
+      <button style={{ backgroundColor: "blue", color: "white" }}>
+        {clickObj.text}
+      </button>
+    </div>
+  );
+};
