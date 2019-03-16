@@ -1,0 +1,60 @@
+suppose amr comment system ace app e. Comment hocce 1ta general component.
+same comment infinite number bar thakte pare. sejonno component nesting 
+kora lage jate comment component ta bar bar reuse korte pari.
+
+------- Creating 1ta component in component folder -------
+
+import React from "react"; //React hocce variable er name.. react dependancy theke sob kusi React var e store hocce
+
+import faker from "faker"; //fake element use korte parbo ei library use kore
+
+//create a react component
+const CommentDetails = () => {
+  return (
+    <div className="ui container comments">
+      <div className="comment">
+        <a href="/" className="avatar">
+          <img alt="avatar" src={faker.image.avatar()} />
+        </a>
+        <div className="content">
+          <a href="/" className="author">
+            {faker.name.firstName()}
+          </a>
+          <div className="metadata">
+            <span className="date">Today at 5.00PM</span>
+          </div>
+          <div className="text">{faker.name.title()}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CommentDetails; //now ei component ta jekono file access korte parbe import korar maddhome
+
+//export korar maddhome component ta jekono file e now use korte parbo..
+
+-------- Calling the CommentDetails component into our app ------
+
+//in index.js file, 1st e component take import kore nite hobe
+
+import React from "react"; //React hocce variable er name.. react dependancy theke sob kusi React var e store hocce
+import ReactDOM from "react-dom";
+
+//Importing components
+import CommentDetails from "./components/CommentDetails";
+
+//create a react component
+const App = () => {
+  return (
+    <div className="ui container comments">
+      <CommentDetails />
+      <CommentDetails />
+      <CommentDetails />
+    </div>
+  );
+};
+
+//Take the react component and show it on the screen
+
+ReactDOM.render(<App />, document.querySelector("#root"));

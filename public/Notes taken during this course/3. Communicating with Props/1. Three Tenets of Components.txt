@@ -1,0 +1,6 @@
+-------  3 main concepts about components --------
+1. Component nesting
+2. Component reusability
+3. Component configuration
+
+

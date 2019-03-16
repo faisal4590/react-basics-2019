@@ -1,0 +1,85 @@
+
+*** Parent to child e info pathabo props diye. 
+    ekhane parents=index.js file, child=CommentDetails.js file
+    so index.js file theke props pathabo, ota CommentDetails.js file
+    e function er parameter diye(props) catch korbo
+
+
+//in our index.js file,
+
+//import the react and ReactDom libraries
+import React from "react"; //React hocce variable er name.. react dependancy theke sob kusi React var e store hocce
+import ReactDOM from "react-dom";
+import faker from "faker";
+//Importing components
+import CommentDetails from "./components/CommentDetails";
+
+//create a react component
+const App = () => {
+  return (
+    <div className="ui container comments">
+      <CommentDetails
+        author="faisal"
+        timeAgo="Today at 5.00PM"
+        comments="This is a nice blog"
+        avatar={faker.image.avatar()}
+      />
+      <CommentDetails
+        author="tamim"
+        timeAgo="Today at 2.00AM"
+        comments="Hola amigos"
+        avatar={faker.image.avatar()}
+      />
+      <CommentDetails
+        author="shakib"
+        timeAgo="Today at 3.00PM"
+        comments="React is awesome"
+        avatar={faker.image.avatar()}
+      />
+    </div>
+  );
+};
+
+//Take the react component and show it on the screen
+
+ReactDOM.render(<App />, document.querySelector("#root"));
+
+
+//ekhane CommentDetails component to shobar jonno same.
+//tai unique korlam props use kore. author 1ta props.
+//protita author er separate comment thakbe. tai author name diye prop create korlam
+
+
+**  Now parent to props pass korlo but props ta ke to child er 
+    get kora lagbe. Ejonno CommentDetails.js file e function er argument 
+    hishebe props likhci.. always props thakbe.. 
+
+//in CommentDetails.js file,
+
+//import the react and ReactDom libraries
+import React from "react"; //React hocce variable er name.. react dependancy theke sob kusi React var e store hocce
+
+//create a react component
+const CommentDetails = props => {
+  //console.log(props);
+  return (
+    <div className="ui container comments">
+      <div className="comment">
+        <a href="/" className="avatar">
+          <img alt="avatar" src={props.avatar} />
+        </a>
+        <div className="content">
+          <a href="/" className="author">
+            {props.author}
+          </a>
+          <div className="metadata">
+            <span className="date">{props.timeAgo}</span>
+          </div>
+          <div className="text">{props.comments}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CommentDetails; //now ei component ta jekono file access korte parbe import korar maddhome

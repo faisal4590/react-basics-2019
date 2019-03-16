@@ -1,0 +1,5 @@
+----------- what is props -----------
+
+props is a system for passing data from parent component
+to child component.
+***** our goal is to customize the child component

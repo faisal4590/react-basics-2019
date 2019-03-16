@@ -1,0 +1,66 @@
+//now prev section e bolcilam je approvalCard component ta reuse korbo
+//otake now create korbo
+
+----- in index.js file -------
+
+const App = () => {
+  return (
+    <div className="ui container comments">
+       <ApprovalCards>
+        <CommentDetails
+          author="faisal"
+          timeAgo="Today at 5.00PM"
+          comments="This is a nice blog"
+          avatar={faker.image.avatar()}
+        />
+      </ApprovalCards>
+
+      <ApprovalCards>
+        <CommentDetails
+          author="tamim"
+          timeAgo="Today at 2.00AM"
+          comments="Hola amigos"
+          avatar={faker.image.avatar()}
+        />
+      </ApprovalCards>
+
+      <ApprovalCards>
+        <CommentDetails
+          author="shakib"
+          timeAgo="Today at 3.00PM"
+          comments="React is awesome"
+          avatar={faker.image.avatar()}
+        />
+      </ApprovalCards>
+    </div>
+  );
+};
+
+
+
+---- in ApprovalCard.js file--------
+
+import React from "react";
+
+const ApprovalCard = props => {
+  //console.log(props.children);  
+  return (
+    <div className="ui card">
+      <div className="content">{props.children}</div>
+
+      <div className="extra content">
+        <div className="ui two buttons">
+          <div className="ui basic green button">Approve</div>
+          <div className="ui basic red button">Reject</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ApprovalCard;
+
+*** As ApprovalCard component ta ke CommentDetails e use korbo,
+    tai ApprovalCard Component ta diye CommentDetails component ke
+    wrap korlam. So CommentDetails component ta ApprovalCard Component er 
+    1ta children. ejonno props.children use korlam ekhane.

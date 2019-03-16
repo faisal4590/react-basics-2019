@@ -1,0 +1,8 @@
+react e amar always component reuse korte hbe..
+
+*** Suppose amar 1ta approveCard component thakbe jetake onek jaygay 
+    use kora lagbe. jmn kono modal window on hole approve/reject ba 
+    comment e approve/reject option thakbe. so ei component ke bar bar
+    reuse kora lagbe. tai ApproveCard name e 1ta separate component create 
+    korbo
+
