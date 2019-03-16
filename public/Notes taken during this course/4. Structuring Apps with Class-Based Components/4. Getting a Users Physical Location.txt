@@ -1,0 +1,8 @@
+//new 1ta project krbo. user er current location and current 
+//month get korbo. then user ke bolbo ekhn okhane winter naki summer. 
+
+//ejonno 2 ta component lagbe. app component ar SeasonDisplay component.
+//app component theke props pathabo
+
+------- Getting user location --------
+//geolocation api use korbo js er

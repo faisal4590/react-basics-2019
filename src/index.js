@@ -6,9 +6,16 @@ import faker from "faker";
 import CommentDetails from "./components/CommentDetails";
 import ApprovalCards from "./components/ApprovalCard";
 
+/*
+/// for chap 1,2,3(functional component)
+
+
 //create a react component
 const App = () => {
+ 
   return (
+    
+
     <div className="ui container comments">
       <ApprovalCards>
         <CommentDetails
@@ -37,8 +44,25 @@ const App = () => {
         />
       </ApprovalCards>
     </div>
+    
+
+    <div>hello</div>
   );
 };
+
+*/
+
+/// for chap 4(Display season app)
+class App extends React.Component {
+  render() {
+    window.navigator.geolocation.getCurrentPosition(
+      position => console.log(position),
+      err => console.log(err)
+    );
+
+    return <div>Lattitude: </div>;
+  }
+}
 
 //Take the react component and show it on the screen
 

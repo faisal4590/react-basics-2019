@@ -1,0 +1,12 @@
+--------- When to used function based component and when to use class based component -------
+
+Functional component:   Simple component gulate use korte pari
+                        jekhane kono logical kisu thakbena.
+
+Class based component:  Baki sob khetre etai use korbo.
+                        Benefits:
+                            1) State use kora jay jar moddhome user input
+                            handle kora easy hoye jay
+                            2) Lifecycle event maintain kora jay which makes
+                            easier to do things when the app first starts.
+                            

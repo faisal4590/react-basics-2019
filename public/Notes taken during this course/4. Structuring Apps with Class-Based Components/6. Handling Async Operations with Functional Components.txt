@@ -1,0 +1,30 @@
+
+--------- Problems using functional component ---------
+
+//How browser handles async operations with functional components:
+
+//for the code above below(from index.js file), it works as 5 steps as shown after the code:
+const App = () => {
+  window.navigator.geolocation.getCurrentPosition(
+    position => console.log(position),
+    err => console.log(err)
+  );
+  return (    
+    <div>Lattitude: </div>
+  );
+};
+
+1) JS file loaded by the browser
+2) Aoo component(root component) gets created
+3) We call the geolocation service
+4) App returns JSX, gets rendered to pages as HTML
+5) We get result of geolocation
+
+problems:   Jokhn ami line 8 e geolocation er maddhome current location
+            get korar try korteci, location ta return korte 3-4 second time ney.
+            but functional component use korle component ta oi time tuku wait korena,
+            next line execute kore fele. Jar karone location fetch kore anar agei
+            amar line 13 execute hoye jay. 
+            ei problem solve korar jonno Class based component use korbo
+            jeta State use kore, so result na pawa prjonto wait korte thakbe... ejonno 
+            Class based component use korbo.

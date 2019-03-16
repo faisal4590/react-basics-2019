@@ -1,0 +1,20 @@
+
+--------- Rules of Class based components ----------
+1) Must be a Javascript class.
+2) Must extend React.Component
+3) Must define e 'render' method that returns some JSX
+
+//this is our function based component. We will convert it into class based component
+const App = () => {
+  window.navigator.geolocation.getCurrentPosition(
+    position => console.log(position),
+    err => console.log(err)
+  );
+  return (    
+    <div>Lattitude: </div>
+  );
+};
+
+
+//after converting the above code into class based component: 
+
