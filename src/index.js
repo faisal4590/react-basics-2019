@@ -54,13 +54,38 @@ const App = () => {
 
 /// for chap 4(Display season app)
 class App extends React.Component {
-  render() {
-    window.navigator.geolocation.getCurrentPosition(
-      position => console.log(position),
-      err => console.log(err)
-    );
+  constructor(props) {
+    super(props);
 
-    return <div>Lattitude: </div>;
+    this.state = {
+      lat: null,
+      errorMessage: ""
+    };
+
+    window.navigator.geolocation.getCurrentPosition(
+      position => {
+        // current position always update kora lagbe. tai
+        //constructor e define korlam and setState method diye update korlam
+
+        this.setState({
+          lat: position.coords.latitude
+        });
+      },
+      err => {
+        this.setState({
+          errorMessage: err.message
+        });
+      }
+    );
+  }
+  render() {
+    if (this.state.lat && !this.state.errorMessage) {
+      return <div>latitude: {this.state.lat}</div>;
+    } else if (!this.state.lat && this.state.errorMessage) {
+      return <div>Error occured: {this.state.errorMessage}</div>;
+    } else {
+      return <div class="ui active centered inline loader" />;
+    }
   }
 }
 

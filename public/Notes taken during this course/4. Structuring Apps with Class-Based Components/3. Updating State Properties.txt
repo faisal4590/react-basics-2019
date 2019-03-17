@@ -1,0 +1,27 @@
+
+//in index.js file,
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      lat: null
+    };
+
+    window.navigator.geolocation.getCurrentPosition(
+      position => {
+        //current position always update kora lagbe. tai
+        //constructor e define korlam and setState method diye update korlam
+
+        this.setState({
+          lat: position.coords.latitude
+        });
+      },
+      err => console.log(err)
+    );
+  }
+  render() {
+    return <div>Lattitude: {this.state.lat} </div>;
+  }
+}

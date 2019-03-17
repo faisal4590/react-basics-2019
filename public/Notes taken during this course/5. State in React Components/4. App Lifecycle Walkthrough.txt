@@ -1,0 +1,37 @@
+
+-------- App lifecycle when we use class based component -----
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      lat: null
+    };
+
+    window.navigator.geolocation.getCurrentPosition(
+      position => {
+        // current position always update kora lagbe. tai
+        //constructor e define korlam and setState method diye update korlam
+
+        this.setState({
+          lat: position.coords.latitude
+        });
+      },
+      err => console.log(err)
+    );
+  }
+  render() {
+    return <div>Lattitude: {this.state.lat} </div>;
+  }
+}
+
+//uporer code er lifecycle : 
+1)  JS file loaded by browser
+2)  Instance of App component is created
+3)  App component's constructor function gets called
+4)  State object is created and assigned to 'this.state' property
+5)  We call the geolocation service
+6)  Then React calls the Render method
+7)  That render method returns some JSX which will be shown in the browser as HTML
+8)  We get the Lattitude.

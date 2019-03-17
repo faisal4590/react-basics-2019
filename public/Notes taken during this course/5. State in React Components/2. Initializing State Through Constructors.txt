@@ -1,0 +1,25 @@
+
+//in index.js file,
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        lat: null 
+    };//initializing the state
+  }
+  render() {
+    window.navigator.geolocation.getCurrentPosition(
+      position => console.log(position),
+      err => console.log(err)
+    );
+
+    return <div>Lattitude: </div>;
+  }
+}
+
+--why we used super?
+line 4 e React.Component class ke extend korteci. Component
+class er nijosso define kora 1ta constructor ace. seta override
+korar jonno super keyword use korlam.
