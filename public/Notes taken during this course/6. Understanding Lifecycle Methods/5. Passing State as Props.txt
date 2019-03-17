@@ -1,0 +1,51 @@
+
+//index.js file theke current latitude ta pathabo SeasonDisplay 
+//component e(line 32 te) . SeasonDisplay component e otake get kore show korbo
+
+//in index.js file,
+
+class App extends React.Component {
+  state = {
+    lat: null,
+    errorMessage: ""
+  };
+
+  componentDidMount() {
+    window.navigator.geolocation.getCurrentPosition(
+      position => {
+        // current position always update kora lagbe. tai
+
+        this.setState({
+          lat: position.coords.latitude
+        });
+      },
+      err => {
+        this.setState({
+          errorMessage: err.message
+        });
+      }
+    );
+  }
+
+  render() {
+    if (this.state.lat && !this.state.errorMessage) {
+      return <SeasonDisplay lat={this.state.lat} />;
+    } else if (!this.state.lat && this.state.errorMessage) {
+      return <div>Error occured: {this.state.errorMessage}</div>;
+    } else {
+      return <div class="ui active centered inline loader" />;
+    }
+  }
+}
+
+//now lat ta get korbo
+
+//in SeasonDisplay.js file,
+
+import React from "react";
+
+const SeasonDisplay = props => {
+  return <div>Latitude: {props.lat}</div>;
+};
+
+export default SeasonDisplay;

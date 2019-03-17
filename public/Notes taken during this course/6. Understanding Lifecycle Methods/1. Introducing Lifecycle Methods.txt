@@ -1,0 +1,77 @@
+
+----- Two methods for initializing a state -----
+1)  Constructor e initializing kora(last chap e dekhci)
+2)  Using lifecycle method.
+
+-------- Lifecycle methods of a class based component ---------
+
+1)  Constructor gets called
+2)  Render function gets called
+3)  That render method returns some jsx which will be shown in the browser as HTML
+4)  component jokhn screen e visible hobe tar por pori 
+    componentDidMount() method ta call hobe.
+5)  After componentDidMount() method gets called, our component 
+    sit and wait for updates.(by using setState() method, we can update our component)
+6)  After updating something(by using setState() method),
+    componentDidUpdate() method gets called.
+7)  Then jotobar update hote thakbe component totobar componentDidUpdate()
+    method call hote thakbe and sathe sathe render method o
+    call hote thakbe per update er jonno to show the updated
+    jsx into the browser. But at a certain point, we may want not to show
+    the component anymore. In that case, componentWillUnmount() 
+    method ta call hobe.
+
+*** componentDidMount(), componentDidUpdate(),componentWillUnmount() ei function gula define
+    kora optional. But jodi define kori tahole ei method gula automatic
+    call hobe within the lifecycle of an component(jodi component er kisu 
+    update kori tahole componentDidMount() method call hobe erokom arki).
+
+
+---------- Why we use component lifecycle methods ---------
+
+// Constructor vs componentDidMount method 
+    2ta method i use hoy data initializing er jonno and 2 ta method i 
+    1 bar only called hoy component lifecycle e.. But React er official
+    documentation e bole dice best practice hocce componentDidMount()
+    method e data initializing kora.
+
+    user er current location 1 bar i fetch korte hobe amar. so componentDidMount()
+    method e geolocation er request ta korte pari.
+
+//Constructor ar lagbena.. direct assign korte parbo.. niche example
+
+//in index.js file,
+
+class App extends React.Component {
+  state = {
+    lat: null,
+    errorMessage: ""
+  };
+
+  componentDidMount() {
+    window.navigator.geolocation.getCurrentPosition(
+      position => {
+        // current position always update kora lagbe. tai
+
+        this.setState({
+          lat: position.coords.latitude
+        });
+      },
+      err => {
+        this.setState({
+          errorMessage: err.message
+        });
+      }
+    );
+  }
+
+  render() {
+    if (this.state.lat && !this.state.errorMessage) {
+      return <div>latitude: {this.state.lat}</div>;
+    } else if (!this.state.lat && this.state.errorMessage) {
+      return <div>Error occured: {this.state.errorMessage}</div>;
+    } else {
+      return <div class="ui active centered inline loader" />;
+    }
+  }
+}

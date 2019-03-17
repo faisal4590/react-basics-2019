@@ -1,3 +1,41 @@
+//index.js file
+
+class App extends React.Component {
+  state = {
+    lat: null,
+    errorMessage: ""
+  };
+
+  componentDidMount() {
+    window.navigator.geolocation.getCurrentPosition(
+      position => {
+        // current position always update kora lagbe. tai
+
+        this.setState({
+          lat: position.coords.latitude
+        });
+      },
+      err => {
+        this.setState({
+          errorMessage: err.message
+        });
+      }
+    );
+  }
+
+  render() {
+    if (this.state.lat && !this.state.errorMessage) {
+      return <SeasonDisplay lat={this.state.lat} />;
+    } else if (!this.state.lat && this.state.errorMessage) {
+      return <div>Error occured: {this.state.errorMessage}</div>;
+    } else {
+      return <div className="ui active centered inline loader" />;
+    }
+  }
+}
+
+//SeasonDetails.js file
+
 //import the react and ReactDom libraries
 import React from "react"; //React hocce variable er name.. react dependancy theke sob kusi React var e store hocce
 import ReactDOM from "react-dom";
